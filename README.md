@@ -15,6 +15,7 @@ Install with [npm](https://www.npmjs.com/):
 - If success to bundle js file, exit status is `0`
 - If fail to bundle js file, exit status is `1`
 
+
     Usage
       $ can-bundle-it /path/to/file.js
  
