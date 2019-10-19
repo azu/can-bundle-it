@@ -37,7 +37,7 @@ export const canBundleIt = (options: CanBundleItOptions) => {
             const info = stats.toJson();
             if (stats.hasErrors()) {
                 if (verbose) {
-                    console.error(info.errors);
+                    console.error(info.errors.join("\n"));
                 }
                 return reject(new Error(info.errors.join("\n")));
             }
