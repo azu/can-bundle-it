@@ -12,6 +12,9 @@ Install with [npm](https://www.npmjs.com/):
 
 ## Usage
 
+- If success to bundle js file, exit status is `0`
+- If fail to bundle js file, exit status is `1`
+
     Usage
       $ can-bundle-it /path/to/file.js
  
@@ -20,6 +23,9 @@ Install with [npm](https://www.npmjs.com/):
  
     Examples
       $ can-bundle-it lib/index.js
+      $ echo $?
+      # ok -> exit status is 0
+      # ng -> exit status is 1
       $ can-bundle-it lib/*.js --verbose
 
 ## Changelog
