@@ -34,7 +34,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production tsc -p .",
     "prepublish": "npm run --if-present build",
-    "test": "mocha \"test/**/*.{js,ts}\"",
+    "test": "mocha \"test/**/*.ts\"",
     "watch": "tsc -p . --watch"
   },
   "dependencies": {
