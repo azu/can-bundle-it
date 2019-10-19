@@ -1,0 +1,55 @@
+{
+  "name": "can-bundle-it",
+  "version": "1.0.0",
+  "description": "A command line tool that detect JavaScript file can be bundled.",
+  "keywords": [
+    "browser",
+    "bundle",
+    "cli",
+    "detect",
+    "tool",
+    "webpack"
+  ],
+  "homepage": "https://github.com/azu/can-bundle-it",
+  "bugs": {
+    "url": "https://github.com/azu/can-bundle-it/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azu/can-bundle-it.git"
+  },
+  "license": "MIT",
+  "author": "azu",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "main": "lib/can-bundle-it.js",
+  "types": "lib/can-bundle-it.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production tsc -p .",
+    "prepublish": "npm run --if-present build",
+    "test": "mocha \"test/**/*.{js,ts}\"",
+    "watch": "tsc -p . --watch"
+  },
+  "dependencies": {
+    "meow": "^5.0.0",
+    "tempfile": "^3.0.0",
+    "webpack": "^4.41.2"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.11.1",
+    "@types/webpack": "^4.39.4",
+    "cross-env": "^6.0.3",
+    "mocha": "^6.2.2",
+    "ts-node": "^8.4.1",
+    "ts-node-test-register": "^8.0.1",
+    "typescript": "^3.6.4"
+  }
+}
