@@ -43,11 +43,11 @@
   "dependencies": {
     "meow": "^5.0.0",
     "tempfile": "^3.0.0",
-    "webpack": "^4.41.5"
+    "webpack": "^4.41.6"
   },
   "devDependencies": {
     "@types/mocha": "^5.2.7",
-    "@types/node": "^12.12.26",
+    "@types/node": "^12.12.27",
     "@types/webpack": "^4.41.6",
     "cross-env": "^6.0.3",
     "mocha": "^6.2.2",
