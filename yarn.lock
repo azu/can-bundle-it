@@ -38,10 +38,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.5.tgz#96ec3b0afafd64a4ccea9107b75bf8489f0e5765"
   integrity sha512-3ySmiBYJPqgjiHA7oEaIo2Rzz0HrOZ7yrNO5HWyaE5q0lQ3BppDZ3N53Miz8bw2I7gh1/zir2MGVZBvpb1zq9g==
 
-"@types/node@^12.12.42":
-  version "12.12.42"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.42.tgz#d0d1149336bd07540dd1ea576692829d575dec34"
-  integrity sha512-R/9QdYFLL9dE9l5cWWzWIZByVGFd7lk7JVOJ7KD+E1SJ4gni7XJRLz9QTjyYQiHIqEAgku9VgxdLjMlhhUaAFg==
+"@types/node@^12.12.43":
+  version "12.12.43"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.43.tgz#b60ce047822e526e7a9252e50844eee79d5386ff"
+  integrity sha512-KUyZdkGCnVPuXfsKmDUu2XLui65LZIJ2s0M57noy5e+ixUT2oK33ep7zlvgzI8LElcWqbf8AR+o/3GqAPac2zA==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -74,10 +74,10 @@
     "@types/source-list-map" "*"
     source-map "^0.6.1"
 
-"@types/webpack@^4.41.16":
-  version "4.41.16"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.16.tgz#57b6154c5465401b0466c5fadcaf89dd98a77798"
-  integrity sha512-w80nXwCcXwwgv7rkTXb8lET6nWPNNUJxa36lrA2DEkD5TcPpHrlGAPrjdpZnkFX/FXSSuN5IIxCYowAB1Vobtw==
+"@types/webpack@^4.41.17":
+  version "4.41.17"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.17.tgz#0a69005e644d657c85b7d6ec1c826a71bebd1c93"
+  integrity sha512-6FfeCidTSHozwKI67gIVQQ5Mp0g4X96c2IXxX75hYEQJwST/i6NyZexP//zzMOBb+wG9jJ7oO8fk9yObP2HWAw==
   dependencies:
     "@types/anymatch" "*"
     "@types/node" "*"

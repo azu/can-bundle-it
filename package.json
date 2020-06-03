@@ -47,8 +47,8 @@
   },
   "devDependencies": {
     "@types/mocha": "^5.2.7",
-    "@types/node": "^12.12.42",
-    "@types/webpack": "^4.41.16",
+    "@types/node": "^12.12.43",
+    "@types/webpack": "^4.41.17",
     "cross-env": "^6.0.3",
     "mocha": "^6.2.3",
     "ts-node": "^8.10.2",
