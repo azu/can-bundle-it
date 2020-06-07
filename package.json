@@ -41,7 +41,7 @@
     "watch": "tsc -p . --watch"
   },
   "dependencies": {
-    "meow": "^5.0.0",
+    "meow": "^7.0.1",
     "tempfile": "^3.0.0",
     "webpack": "^4.43.0"
   },
