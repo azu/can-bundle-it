@@ -17,7 +17,8 @@ describe('can-bundle-it', function () {
                     const actualFilePath = path.join(fixtureDir, "index.js");
                     return canBundleIt({
                         filePath: actualFilePath,
-                        verbose: true
+                        verbose: true,
+                        target: "web"
                     });
                 });
             })
@@ -33,7 +34,8 @@ describe('can-bundle-it', function () {
                     const fixtureDir = path.join(fixturesDir, caseName);
                     const actualFilePath = path.join(fixtureDir, "index.js");
                     return assert.rejects(() => canBundleIt({
-                        filePath: actualFilePath
+                        filePath: actualFilePath,
+                        target: "web"
                     }));
                 });
             })
