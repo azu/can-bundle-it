@@ -16,13 +16,15 @@ Install with [npm](https://www.npmjs.com/):
       $ can-bundle-it /path/to/file.js
  
     Options
-      --verbose show info/warning/error messages 
- 
+      --verbose        Show info/warning/error messages 
+      
+    Bundle Options
+      
+      --target         Bundle target. Available: "web"
+      --no-fs          Disable "fs"
+     
     Examples
       $ can-bundle-it lib/index.js
-      $ echo $?
-      # ok -> exit status is 0
-      # ng -> exit status is 1
       $ can-bundle-it lib/*.js --verbose
 
 
