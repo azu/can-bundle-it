@@ -6,22 +6,44 @@ import * as fs from "fs";
 export interface CanBundleItOptions {
     filePath: string;
     verbose?: boolean;
+    target: webpack.Configuration["target"];
 }
 
-export const createWebpackConfig = (filePath: string, outputTempFilePath: string): webpack.Configuration => {
+interface WebpackConfig {
+    filePath: string;
+    outputTempFilePath: string;
+    target: webpack.Configuration["target"]
+}
+
+export const validTarget = (target: unknown): target is webpack.Configuration["target"] => {
+    return typeof target === "string";
+}
+
+export const createWebpackConfig = ({filePath, outputTempFilePath, target}: WebpackConfig): webpack.Configuration => {
     return {
         mode: 'development',
         entry: filePath,
         output: {
             path: outputTempFilePath
-        }
+        },
+        target,
+        // Disable fs in target:web
+        node: target === "web"
+            ? {
+                fs: "empty"
+            }
+            : {}
     };
 };
 
-export const canBundleIt = (options: CanBundleItOptions) => {
+export const canBundleIt = (options: CanBundleItOptions): Promise<void> => {
     const outputFilePath = tempfile(".js");
-    return new Promise((resolve, reject) => {
-        const config = createWebpackConfig(options.filePath, outputFilePath);
+    return new Promise<void>((resolve, reject) => {
+        const config = createWebpackConfig({
+            filePath: options.filePath,
+            outputTempFilePath: outputFilePath,
+            target: options.target
+        });
         webpack([config], (error: Error & { details?: string; }, stats) => {
             const verbose = options.verbose;
             if (error) {

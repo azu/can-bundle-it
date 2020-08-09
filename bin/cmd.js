@@ -1,32 +1,18 @@
 #!/usr/bin/env node
-
-const meow = require("meow");
-const { run } = require("../lib/cli");
-const cli = meow(`
-    Usage
-      $ can-bundle-it /path/to/file.js
- 
-    Options
-      --verbose show info/warning/error messages 
- 
-    Examples
-      $ can-bundle-it lib/index.js
-      $ can-bundle-it lib/*.js --verbose
-`, {
-    flags: {
-        verbose: {
-            type: "boolean"
+require("../lib/cli")
+    .run()
+    .then(
+        ({ exitStatus, stderr, stdout }) => {
+            if (stdout) {
+                console.log(stdout);
+            }
+            if (stderr) {
+                console.error(stderr);
+            }
+            process.exit(exitStatus);
+        },
+        error => {
+            console.error(error);
+            process.exit(1);
         }
-    },
-    autoHelp: true,
-    autoVersion: true
-});
-
-run({
-    filePathList: cli.input,
-    verbose: cli.flags.verbose
-}).then(() => {
-    process.exit(0);
-}).catch(() => {
-    process.exit(1);
-});
+    );
