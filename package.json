@@ -1,6 +1,6 @@
 {
   "name": "can-bundle-it",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A command line tool that detect JavaScript file can be bundled.",
   "keywords": [
     "browser",
