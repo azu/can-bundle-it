@@ -11,7 +11,7 @@ export const cli = meow(
       
     Bundle Options
       
-      --target         Bundle target. Available: "web"
+      --target         Bundle target. Available: https://webpack.js.org/configuration/target/
       --no-fs          Disable "fs"
      
     Examples
