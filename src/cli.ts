@@ -8,7 +8,11 @@ export const cli = meow(
  
     Options
       --verbose        Show info/warning/error messages 
+      
+    Bundle Options
+      
       --target         Bundle target. Available: "web"
+      --no-fs          Disable "fs"
      
     Examples
       $ can-bundle-it lib/index.js
@@ -21,6 +25,9 @@ export const cli = meow(
             target: {
                 type: "string",
                 default: "web"
+            },
+            fs: {
+                type: "boolean"
             }
         },
         autoHelp: true,
@@ -41,6 +48,7 @@ export const run = async (
             filePath,
             verbose: flags.verbose,
             target: target,
+            fs: flags.fs
         });
     });
     try {

@@ -7,19 +7,21 @@ export interface CanBundleItOptions {
     filePath: string;
     verbose?: boolean;
     target: webpack.Configuration["target"];
+    fs?: boolean;
 }
 
 interface WebpackConfig {
     filePath: string;
     outputTempFilePath: string;
-    target: webpack.Configuration["target"]
+    target: webpack.Configuration["target"];
+    fs?: boolean;
 }
 
 export const validTarget = (target: unknown): target is webpack.Configuration["target"] => {
     return typeof target === "string";
 }
 
-export const createWebpackConfig = ({filePath, outputTempFilePath, target}: WebpackConfig): webpack.Configuration => {
+export const createWebpackConfig = ({filePath, outputTempFilePath, target, fs}: WebpackConfig): webpack.Configuration => {
     return {
         mode: 'development',
         entry: filePath,
@@ -28,7 +30,7 @@ export const createWebpackConfig = ({filePath, outputTempFilePath, target}: Webp
         },
         target,
         // Disable fs in target:web
-        node: target === "web"
+        node: fs === false
             ? {
                 fs: "empty"
             }
@@ -42,7 +44,8 @@ export const canBundleIt = (options: CanBundleItOptions): Promise<void> => {
         const config = createWebpackConfig({
             filePath: options.filePath,
             outputTempFilePath: outputFilePath,
-            target: options.target
+            target: options.target,
+            fs: options.fs
         });
         webpack([config], (error: Error & { details?: string; }, stats) => {
             const verbose = options.verbose;
