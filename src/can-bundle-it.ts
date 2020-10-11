@@ -11,6 +11,11 @@ const ValidNodeModules = Object.keys(nodeModules).reduce((m, key) => {
     }
     return m
 }, {} as { [key in keyof typeof nodeModules]: string })
+// FIXME: Its hack
+const DisableNodeModules = Object.keys(nodeModules).reduce((m, key) => {
+    m[key] = "./webpack_does_not_nodejs_core_modules_by_default";
+    return m
+}, {} as { [key in keyof typeof nodeModules]: string })
 
 export interface CanBundleItOptions {
     filePath: string;
@@ -42,11 +47,18 @@ export const createWebpackConfig = ({filePath, outputTempFilePath, target, nodeF
             resolve: {
                 fallback: ValidNodeModules
             }
-        } : {})
+        } : {
+            // TODO: We want to just use {}
+            // But, webpack 5 polyfill node.js modules automatically when "node-libs-browser" is installed.
+            // Force disable these by alias
+            resolve: {
+                alias: DisableNodeModules
+            }
+        })
     };
 };
 
-type WebpackErrror = undefined | Error & { details?: string; };
+type WebpackError = undefined | Error & { details?: string; };
 export const canBundleIt = (options: CanBundleItOptions): Promise<void> => {
     // output to {temp}/main.js
     const outputFilePath = tempfile();
@@ -57,7 +69,7 @@ export const canBundleIt = (options: CanBundleItOptions): Promise<void> => {
             target: options.target,
             nodeFallback: options.nodeFallback
         });
-        webpack([config], (error: WebpackErrror, stats) => {
+        webpack([config], (error: WebpackError, stats) => {
             const verbose = options.verbose;
             if (error) {
                 if (verbose) {
@@ -83,7 +95,6 @@ export const canBundleIt = (options: CanBundleItOptions): Promise<void> => {
         })
     }).finally(() => {
         try {
-            console.log("outputFilePath", outputFilePath);
             fs.unlinkSync(outputFilePath);
         } catch {
             // nope

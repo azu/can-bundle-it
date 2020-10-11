@@ -15,10 +15,13 @@ describe('can-bundle-it', function () {
                 it(`Test ${normalizedTestName}`, async function () {
                     const fixtureDir = path.join(fixturesDir, caseName);
                     const actualFilePath = path.join(fixtureDir, "index.js");
+                    const optionsFilePath = path.join(fixtureDir, "options.json");
+                    const options = fs.existsSync(optionsFilePath) ? JSON.parse(fs.readFileSync(optionsFilePath, "utf-8")) : {}
                     return canBundleIt({
                         filePath: actualFilePath,
                         verbose: true,
-                        target: "web"
+                        target: "web",
+                        ...options
                     });
                 });
             })
@@ -33,9 +36,12 @@ describe('can-bundle-it', function () {
                 it(`Test ${normalizedTestName}`, async function () {
                     const fixtureDir = path.join(fixturesDir, caseName);
                     const actualFilePath = path.join(fixtureDir, "index.js");
+                    const optionsFilePath = path.join(fixtureDir, "options.json");
+                    const options = fs.existsSync(optionsFilePath) ? JSON.parse(fs.readFileSync(optionsFilePath, "utf-8")) : {}
                     return assert.rejects(() => canBundleIt({
                         filePath: actualFilePath,
-                        target: "web"
+                        target: "web",
+                        ...options
                     }));
                 });
             })
