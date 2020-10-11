@@ -20,12 +20,15 @@ Install with [npm](https://www.npmjs.com/):
       
     Bundle Options
       
-      --target         Bundle target. Available: https://webpack.js.org/configuration/target/
-      --no-fs          Disable "fs"
+      --target              [String]  Bundle target. Available: https://webpack.js.org/configuration/target/
+      --node-fallback       [Boolean] enable Node.js modules fallback
+                            webpack 5 disable Node.js polyfill by default. This options set node-libs-browser to resolve.fallback.
      
     Examples
       $ can-bundle-it lib/index.js
       $ can-bundle-it lib/*.js --verbose
+      # Enable Node.js polyfill like "assert"
+      $ can-bundle-it lib/*.js --verbose --node-fallback
 
 
 - If success to bundle js file, exit status is `0`

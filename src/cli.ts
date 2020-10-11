@@ -1,4 +1,5 @@
 import meow from "meow";
+import path from "path";
 import { canBundleIt, validTarget } from "./can-bundle-it";
 
 export const cli = meow(
@@ -11,12 +12,15 @@ export const cli = meow(
       
     Bundle Options
       
-      --target         Bundle target. Available: https://webpack.js.org/configuration/target/
-      --no-fs          Disable "fs"
+      --target              [String]  Bundle target. Available: https://webpack.js.org/configuration/target/
+      --node-fallback       [Boolean] enable Node.js modules fallback
+                            webpack 5 disable Node.js polyfill by default. This options set node-libs-browser to resolve.fallback.
      
     Examples
       $ can-bundle-it lib/index.js
       $ can-bundle-it lib/*.js --verbose
+      # Enable Node.js polyfill like "assert"
+      $ can-bundle-it lib/*.js --verbose --node-fallback
 `, {
         flags: {
             verbose: {
@@ -26,7 +30,7 @@ export const cli = meow(
                 type: "string",
                 default: "web"
             },
-            fs: {
+            nodeFallback: {
                 type: "boolean"
             }
         },
@@ -44,11 +48,12 @@ export const run = async (
         throw new Error(`target: ${target} is not supported`);
     }
     const promises = input.map(filePath => {
+        const absoluteFilePath = path.resolve(process.cwd(), filePath);
         return canBundleIt({
-            filePath,
+            filePath: absoluteFilePath,
             verbose: flags.verbose,
             target: target,
-            fs: flags.fs
+            nodeFallback: flags.nodeFallback
         });
     });
     try {
