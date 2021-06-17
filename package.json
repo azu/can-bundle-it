@@ -43,7 +43,7 @@
   "dependencies": {
     "meow": "^9.0.0",
     "node-libs-browser": "^2.2.1",
-    "tempfile": "^3.0.0",
+    "tempfile": "^4.0.0",
     "webpack": "^5.39.1"
   },
   "devDependencies": {
