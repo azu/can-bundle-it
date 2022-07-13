@@ -1,6 +1,6 @@
 import meow from "meow";
 import path from "path";
-import { canBundleIt, validTarget } from "./can-bundle-it";
+import { canBundleIt, validTarget } from "./can-bundle-it.js";
 
 export const cli = meow(
     `
@@ -31,9 +31,11 @@ export const cli = meow(
                 default: "web"
             },
             nodeFallback: {
-                type: "boolean"
-            }
+                type: "boolean",
+                default: false
+            },
         },
+        importMeta: import.meta,
         autoHelp: true,
         autoVersion: true
     }
@@ -63,7 +65,7 @@ export const run = async (
             stderr: null,
             stdout: null
         };
-    } catch (error) {
+    } catch (error: any) {
         return {
             exitStatus: 1,
             stderr: error,

@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     /* Basic Options */
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "newLine": "LF",
     "outDir": "./lib/",
