@@ -36,8 +36,6 @@ export const validTarget = (target: unknown): target is webpack.Configuration["t
 }
 
 export const createWebpackConfig = ({filePath, outputTempFilePath, target, nodeFallback}: WebpackConfig): webpack.Configuration => {
-    console.log(nodeFallback)
-    console.log(DisableNodeModules)
     return {
         mode: 'development',
         entry: filePath,
