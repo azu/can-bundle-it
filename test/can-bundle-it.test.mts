@@ -1,7 +1,10 @@
 import * as fs from "fs";
 import * as path from "path";
-import { canBundleIt } from "../src/can-bundle-it";
+import { canBundleIt } from "../src/can-bundle-it.mjs";
 import * as assert from "assert";
+import url from "url";
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const fixturesDir = path.join(__dirname, "fixtures");
 describe('can-bundle-it', function () {

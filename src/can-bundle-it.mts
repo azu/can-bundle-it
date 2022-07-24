@@ -13,7 +13,7 @@ const ValidNodeModules = Object.keys(nodeModules).reduce((m, key) => {
 }, {} as { [key in keyof typeof nodeModules]: string })
 // FIXME: Its hack
 const DisableNodeModules = Object.keys(nodeModules).reduce((m, key) => {
-    m[key] = "./webpack_does_not_nodejs_core_modules_by_default";
+    m[key] = "./webpack_does_not_nodejs_core_modules_by_default.js";
     return m
 }, {} as { [key in keyof typeof nodeModules]: string })
 
@@ -69,7 +69,9 @@ export const canBundleIt = (options: CanBundleItOptions): Promise<void> => {
             target: options.target,
             nodeFallback: options.nodeFallback
         });
+        console.log(outputFilePath)
         webpack([config], (error: WebpackError, stats) => {
+            // @ts-ignore
             const verbose = options.verbose;
             if (error) {
                 if (verbose) {
