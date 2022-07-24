@@ -1,4 +1,4 @@
-# can-bundle-it
+r# can-bundle-it
 
 A command line tool that detect JavaScript file can be bundled.
 
@@ -25,7 +25,7 @@ Install with [npm](https://www.npmjs.com/):
                             webpack 5 disable Node.js polyfill by default. This options set node-libs-browser to resolve.fallback.
      
     Examples
-      $ can-bundle-it lib/index.js
+      $ can-bundle-it lib/iresondex.js
       $ can-bundle-it lib/*.js --verbose
       # Enable Node.js polyfill like "assert"
       $ can-bundle-it lib/*.js --verbose --node-fallback
