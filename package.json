@@ -1,7 +1,6 @@
 {
   "name": "can-bundle-it",
   "version": "2.0.0",
-  "type": "module",
   "description": "A command line tool that detect JavaScript file can be bundled.",
   "keywords": [
     "browser",
@@ -26,10 +25,10 @@
     "lib/",
     "src/"
   ],
-  "main": "lib/can-bundle-it.js",
+  "main": "lib/can-bundle-it.mjs",
   "types": "lib/can-bundle-it.d.ts",
   "bin": {
-    "can-bundle-it": "bin/cmd.js"
+    "can-bundle-it": "bin/cmd.mjs"
   },
   "directories": {
     "lib": "lib",
@@ -38,7 +37,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production tsc -p .",
     "prepublish": "npm run --if-present build",
-    "test": "mocha \"test/**/*.ts\"",
+    "test": "mocha \"test/**/*.mts\"",
     "watch": "tsc -p . --watch"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
 import meow from "meow";
 import path from "path";
-import { canBundleIt, validTarget } from "./can-bundle-it.js";
+import { canBundleIt, validTarget } from "./can-bundle-it.mjs";
 
 export const cli = meow(
     `

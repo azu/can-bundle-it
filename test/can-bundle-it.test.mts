@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-import { canBundleIt } from "../src/can-bundle-it.js";
+import { canBundleIt } from "../src/can-bundle-it.mjs";
 import * as assert from "assert";
 import url from "url";
 const __filename = url.fileURLToPath(import.meta.url);
