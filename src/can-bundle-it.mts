@@ -69,7 +69,6 @@ export const canBundleIt = (options: CanBundleItOptions): Promise<void> => {
             target: options.target,
             nodeFallback: options.nodeFallback
         });
-        console.log(outputFilePath)
         webpack([config], (error: WebpackError, stats) => {
             // @ts-ignore
             const verbose = options.verbose;
