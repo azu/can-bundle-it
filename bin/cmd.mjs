@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-require("../lib/cli")
-    .run()
+const cli = await import("../lib/cli.mjs")
+cli.run()
     .then(
         ({ exitStatus, stderr, stdout }) => {
             if (stdout) {
