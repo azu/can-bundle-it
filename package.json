@@ -41,7 +41,7 @@
     "watch": "tsc -p . --watch"
   },
   "dependencies": {
-    "meow": "^10.1.5",
+    "meow": "^11.0.0",
     "node-libs-browser": "^2.2.1",
     "tempfile": "^4.0.0",
     "webpack": "^5.76.1"
