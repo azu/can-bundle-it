@@ -44,7 +44,7 @@
     "meow": "^10.1.5",
     "node-libs-browser": "^2.2.1",
     "tempfile": "^4.0.0",
-    "webpack": "^5.76.2"
+    "webpack": "^5.76.3"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.1",
