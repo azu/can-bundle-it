@@ -44,11 +44,11 @@
     "meow": "^10.1.5",
     "node-libs-browser": "^2.2.1",
     "tempfile": "^4.0.0",
-    "webpack": "^5.90.1"
+    "webpack": "^5.90.3"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
-    "@types/node": "^18.19.15",
+    "@types/node": "^18.19.26",
     "cross-env": "^7.0.3",
     "mocha": "^10.3.0",
     "ts-node": "^10.9.2",
